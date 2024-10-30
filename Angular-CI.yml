@@ -44,6 +44,16 @@ jobs:
       project: src
       prod: false
       debug: true
+- job: 'run_lighthouse'
+  displayName: 'Run Lighthouse Report'
+  pool:
+    name: Default
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: npm install -g @lhci/cli@0.14.x
+    displayName: install Lighthouse
 trigger:
  branches:
     include:
