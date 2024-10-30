@@ -1,1 +1,8 @@
-<h1 style=" color:blue; text-align: center;"> {{title}} </h1>
+<h1 style="  color:blue; text-align: center;"> {{title}} </h1>
+<mat-toolbar color="primary">
+  <span>AngularApp</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/login">Login</a>
+  <a mat-button routerLink="/details">Details</a>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
