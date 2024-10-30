@@ -1,3 +1,4 @@
+import { AuthService } from './authservice.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,8 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconAnchor, MatIconButton,MatButton } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LogindetailsComponent } from './logindetails/logindetails.component';
@@ -20,7 +22,8 @@ const routes: Routes = [
  declarations: [
    AppComponent,
    LoginComponent,
-   LogindetailsComponent
+   LogindetailsComponent,
+
  ],
  imports: [
    BrowserModule,
@@ -30,9 +33,10 @@ const routes: Routes = [
    MatFormFieldModule,
    MatInputModule,
    MatButtonModule,
-   MatToolbarModule
+   MatToolbarModule,
+   MatIconModule,
  ],
- providers: [],
+ providers: [AuthService],
  bootstrap: [AppComponent]
 })
 export class AppModule { }

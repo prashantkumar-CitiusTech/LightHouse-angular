@@ -1,8 +1,22 @@
-<mat-card class="details-card">
+<div class="card-container">
+  <mat-card class="details-card" *ngIf="authService.checkLogin()">
   <mat-card-header>
-  <mat-card-title>Details Page</mat-card-title>
+  <mat-icon>account_circle</mat-icon>
+  <mat-card-title>Welcome Back!</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-  <p>This is the details page content. You can add more information here as needed.</p>
+  <p>Hello, User! Here is your personalized content:</p>
+  <ul>
+  <li><mat-icon color="primary">account_balance_wallet</mat-icon> Account Balance: <strong>$1,200</strong></li>
+  <li><mat-icon color="primary">access_time</mat-icon> Last Login: <strong>Today, 2:00 PM</strong></li>
+  <li><mat-icon color="primary">calendar_today</mat-icon> Member Since: <strong>2021</strong></li>
+  </ul>
   </mat-card-content>
+  <mat-card-actions>
+  <button mat-raised-button color="warn" (click)="onLogout()">Logout</button>
+  </mat-card-actions>
   </mat-card>
+  <mat-card *ngIf="!authService.checkLogin()" class="details-card">
+  <p>Please log in to view your details.</p>
+  </mat-card>
+  </div>
