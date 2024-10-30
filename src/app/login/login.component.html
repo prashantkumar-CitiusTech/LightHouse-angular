@@ -1,14 +1,16 @@
-<mat-card class="login-card">
-  <h2>Login</h2>
+<div class="card-container">
+  <mat-card class="login-card">
+  <h2>Sign In</h2>
   <form>
-  <mat-form-field appearance="outline" class="full-width">
+  <mat-form-field appearance="fill" class="full-width">
   <mat-label>Username</mat-label>
   <input matInput type="text" name="username" />
   </mat-form-field>
-  <mat-form-field appearance="outline" class="full-width">
+  <mat-form-field appearance="fill" class="full-width">
   <mat-label>Password</mat-label>
   <input matInput type="password" name="password" />
   </mat-form-field>
-  <button mat-raised-button color="primary" class="full-width">Login</button>
+  <button mat-raised-button color="accent" class="full-width" (click)="onLogin()">Login</button>
   </form>
   </mat-card>
+  </div>
