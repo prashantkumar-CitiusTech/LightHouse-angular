@@ -47,5 +47,5 @@ jobs:
 trigger:
  branches:
     include:
-      - master
+      - main
 ...
