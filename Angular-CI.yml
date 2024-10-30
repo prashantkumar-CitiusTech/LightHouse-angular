@@ -44,7 +44,7 @@ jobs:
       project: src
       prod: false
       debug: true
-- job: 'run_lighthouse'
+- job: 'run_lighthouse '
   displayName: 'Run Lighthouse Report'
   pool:
     name: Default
