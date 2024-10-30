@@ -44,4 +44,8 @@ jobs:
       project: src
       prod: false
       debug: true
+trigger:
+ branches:
+    include:
+      - master
 ...
