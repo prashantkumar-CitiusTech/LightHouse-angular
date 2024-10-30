@@ -58,4 +58,8 @@ trigger:
  branches:
     include:
       - main
+pr:
+ branches:
+    include:
+      - main
 ...
