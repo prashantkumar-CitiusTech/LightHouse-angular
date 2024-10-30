@@ -1,0 +1,47 @@
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/main
+jobs:
+- job: Job_1
+  displayName: Angular lint, test and build CI
+  pool:
+    name: Default
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: NodeTool@0
+    displayName: Use Node 16.x
+    inputs:
+      versionSpec: 16.x
+  - task: Npm@1
+    displayName: npm install
+    inputs:
+      workingDir: src
+      verbose: false
+  - task: RaulARuiz.angular-cli-1.angular-cli-build-task.AngularCLI@1
+    displayName: ng lint
+    continueOnError: True
+    enabled: False
+    timeoutInMinutes: 10
+    inputs:
+      command: lint
+      project: src
+      verbose: true
+  - task: RaulARuiz.angular-cli-1.angular-cli-build-task.AngularCLI@1
+    displayName: ng test
+    continueOnError: True
+    enabled: False
+    timeoutInMinutes: 10
+    inputs:
+      command: test
+      project: src
+  - task: RaulARuiz.angular-cli-1.angular-cli-build-task.AngularCLI@1
+    displayName: 'ng build '
+    inputs:
+      project: src
+      prod: false
+      debug: true
+...
