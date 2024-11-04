@@ -39,20 +39,14 @@ jobs:
       customCommand: '-g lighthouse'
   - task: Npm@1
     inputs:
-      command: 'custom'
-      customCommand: 'run ng serve'
-      workingDir: src
-    displayName: 'Start Angular Application'
-  - task: Npm@1
-    inputs:
-      command: 'custom'
-      customCommand: 'run lighthouse'
-      workingDir: src
+      command: 'install'
+      customCommand: 'install -g @lhci/cli@0.14.x'
+    displayName: 'install lhci'
+  - script: |
+      lhci autorun
+    env:
+      LHCI_GITHUB_APP_TOKEN: $(LHCI_GITHUB_APP_TOKEN)
     displayName: 'Run Lighthouse Audit'
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: 'lighthouse-report.json'
-    displayName: 'Publish Lighthouse Report'
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     inputs:

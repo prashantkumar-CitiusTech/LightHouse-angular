@@ -6,9 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lighthouse": "lighthouse http://localhost:4200 --output json --output-path ./lighthouse-report.json --quiet"
-  },
+    "test": "ng test"
+   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.0",
