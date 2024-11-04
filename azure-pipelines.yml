@@ -43,7 +43,9 @@ jobs:
       customCommand: 'install -g @lhci/cli@0.14.x'
     displayName: 'install lhci'
   - script: |
-      lhci autorun --collect.url=http://localhost:4200 --collect.url=http://localhost:4200/login --collect.startServerCommand="npm start" --collect.numberOfRuns=3 --assert.preset=lighthouse:recommended --upload.target=temporary-public-storage
+      lhci autorun
+    env:
+      LHCI_GITHUB_APP_TOKEN: 'RN9p9l1UYcG0uORt:56737945:hS9QrbIG'
     displayName: 'Run Lighthouse Audit'
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
