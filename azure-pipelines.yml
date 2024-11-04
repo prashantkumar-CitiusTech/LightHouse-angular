@@ -39,6 +39,11 @@ jobs:
       customCommand: '-g lighthouse'
   - task: Npm@1
     inputs:
+      command: 'install'
+      customCommand: 'install -g @lhci/cli@0.14.x'
+    displayName: 'install lhci'
+  - task: Npm@1
+    inputs:
       command: 'custom'
       customCommand: 'lhci autorun'
       workingDir: src
