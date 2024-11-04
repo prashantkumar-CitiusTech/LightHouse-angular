@@ -43,7 +43,7 @@ jobs:
       customCommand: 'install -g @lhci/cli@0.14.x'
     displayName: 'install lhci'
   - script: |
-      lhci autorun --collect.staticDistDir=src
+      lhci autorun
     env:
       LHCI_GITHUB_APP_TOKEN: 'RN9p9l1UYcG0uORt:56737945:hS9QrbIG'
     displayName: 'Run Lighthouse Audit'
