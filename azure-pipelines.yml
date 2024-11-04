@@ -45,7 +45,7 @@ jobs:
   - script: |
       lhci autorun
     env:
-      LHCI_GITHUB_APP_TOKEN: 'RN9p9l1UYcG0uORt:56737945:hS9QrbIG'
+      LHCI_GITHUB_APP_TOKEN: $(LHCI_GITHUB_APP_TOKEN)
     displayName: 'Run Lighthouse Audit'
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
