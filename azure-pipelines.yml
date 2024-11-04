@@ -40,7 +40,7 @@ jobs:
   - task: Npm@1
     inputs:
       command: 'custom'
-      customCommand: 'run lighthouse'
+      customCommand: 'lhci autorun'
       workingDir: src
     displayName: 'Run Lighthouse Audit'
   - task: PublishBuildArtifacts@1
