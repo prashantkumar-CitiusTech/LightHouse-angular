@@ -31,12 +31,6 @@ jobs:
     inputs:
       command: 'custom'
       customCommand: 'run ng build'
-
-  - task: Npm@1
-    displayName: 'install lighthouse'
-    inputs:
-      command: 'install'
-      customCommand: '-g lighthouse'
   - task: Npm@1
     inputs:
       command: 'install'
