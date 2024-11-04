@@ -2,6 +2,10 @@ trigger:
   branches:
     include:
     - refs/heads/main
+pr:
+  branches:
+    include:
+    - main
 resources:
   repositories:
   - repository: self
@@ -14,9 +18,9 @@ jobs:
     name: Default
   steps:
   - task: NodeTool@0
-    displayName: Use Node 16.x
+    displayName: Use Node 18.x
     inputs:
-      versionSpec: 16.x
+      versionSpec: 18.x
   - task: Npm@1
     displayName: npm install
     inputs:
@@ -27,6 +31,28 @@ jobs:
     inputs:
       command: 'custom'
       customCommand: 'run ng build'
+
+  - task: Npm@1
+    displayName: 'install lighthouse'
+    inputs:
+      command: 'install'
+      customCommand: '-g lighthouse'
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'run ng serve'
+      workingDir: src
+    displayName: 'Start Angular Application'
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'run lighthouse'
+      workingDir: src
+    displayName: 'Run Lighthouse Audit'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: 'lighthouse-report.json'
+    displayName: 'Publish Lighthouse Report'
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     inputs:
