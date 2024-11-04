@@ -43,7 +43,7 @@ jobs:
       customCommand: 'install -g @lhci/cli@0.14.x'
     displayName: 'install lhci'
   - script: |
-      lhci autorun
+      lhci autorun --collect.url=http://localhost:4200 --collect.url=http://localhost:4200/login --collect.startServerCommand="npm start" --collect.numberOfRuns=3 --assert.preset=lighthouse:recommended --upload.target=temporary-public-storage
     displayName: 'Run Lighthouse Audit'
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
