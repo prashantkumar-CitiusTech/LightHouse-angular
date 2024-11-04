@@ -40,19 +40,9 @@ jobs:
   - task: Npm@1
     inputs:
       command: 'custom'
-      customCommand: 'run ng serve'
-      workingDir: src
-    displayName: 'Start Angular Application'
-  - task: Npm@1
-    inputs:
-      command: 'custom'
       customCommand: 'run lighthouse'
       workingDir: src
     displayName: 'Run Lighthouse Audit'
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: 'lighthouse-report.json'
-    displayName: 'Publish Lighthouse Report'
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
     inputs:
